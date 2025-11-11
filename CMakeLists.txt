@@ -14,8 +14,8 @@ else()
 endif()
 
 # --- Source files ---
-set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../cpp")
-add_library(calculator STATIC ${SRC_DIR}/calculator.cpp)
+# set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/cpp")
+# add_library(calculator STATIC ${SRC_DIR}/calculator.cpp)
 
 # --- Build for WebAssembly if using Emscripten ---
 if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
@@ -33,6 +33,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     )
 else()
     message(STATUS "Building native (non-WebAssembly) version...")
-     add_executable(calculator_exec ${SRC_DIR}/calculator.cpp)
+    add_executable(calculator_exec ${SRC_DIR}/calculator.cpp)
      target_link_libraries(calculator_exec calculator)
 endif()

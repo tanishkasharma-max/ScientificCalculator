@@ -1,0 +1,4 @@
+/Users/tanishkasharma/ScientificCalculator/build/CMakeFiles/calculator.dir
+/Users/tanishkasharma/ScientificCalculator/build/CMakeFiles/calculator_exec.dir
+/Users/tanishkasharma/ScientificCalculator/build/CMakeFiles/edit_cache.dir
+/Users/tanishkasharma/ScientificCalculator/build/CMakeFiles/rebuild_cache.dir
