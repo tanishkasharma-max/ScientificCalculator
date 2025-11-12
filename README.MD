@@ -60,7 +60,7 @@ A multi-platform scientific calculator with native C++ support and WebAssembly i
 ### 1. Build Native Calculator
 
 ```bash
-# Using the build script (easiest)
+# Using the build script 
 ./build.sh Release native
 
 # Or manually
@@ -89,7 +89,6 @@ source /path/to/emsdk/emsdk_env.sh
 # Build
 ./build.sh Release wasm
 
-# Output: wasm/build/calculator.js + calculator.wasm
 ```
 
 ### 3. Run Web App (Development)
@@ -118,21 +117,4 @@ npm run dev
 
 ```
 
-### Using CMake Directly
-
-**Native Build:**
-```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build --config Release
-./build/calculator_exec
-```
-
-**WebAssembly Build:**
-```bash
-source /path/to/emsdk/emsdk_env.sh
-emcmake cmake -S wasm -B wasm/build -DCMAKE_BUILD_TYPE=Release
-cmake --build wasm/build --config Release
-```
-
-```
 
