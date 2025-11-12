@@ -61,7 +61,7 @@ A multi-platform scientific calculator with native C++ support and WebAssembly i
 
 ```bash
 # Using the build script 
-./build.sh Release native
+./build.sh Run native
 
 # Or manually
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -87,7 +87,7 @@ Tangent of 45 degrees: 1
 source /path/to/emsdk/emsdk_env.sh
 
 # Build
-./build.sh Release wasm
+./build.sh Run wasm
 
 ```
 
@@ -110,10 +110,10 @@ npm run dev
 ./build.sh Debug native
 
 # WebAssembly only
-./build.sh Release wasm
+./build.sh Run wasm
 
 # Both native and WASM
-./build.sh Release all
+./build.sh Run all
 
 ```
 
