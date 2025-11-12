@@ -40,5 +40,27 @@ if [ "$TARGET" = "native" ] || [ "$TARGET" = "all" ]; then
   fi
 fi
 
+
+if [ "$TARGET" = "wasm" ] || [ "$TARGET" = "all" ]; then
+  echo "Building WebAssembly Module..."
+  echo ""
+  
+  # Check for Emscripten
+  if ! command -v emcmake &> /dev/null; then
+    echo "⚠ Emscripten not found. Skipping WASM build."
+    echo "  To build WASM: source /path/to/emsdk/emsdk_env.sh"
+    echo ""
+  else
+    # Clean and configure for Emscripten
+    rm -rf wasm/build
+   emcmake cmake -S . -B wasm/build -DCMAKE_BUILD_TYPE="$BUILD_TYPE"
+    
+    # Compile
+    cmake --build wasm/build --config "$BUILD_TYPE"
+    
+    echo ""
+    echo "WASM build complete!"
+    echo ""
+  fi
 fi
 
