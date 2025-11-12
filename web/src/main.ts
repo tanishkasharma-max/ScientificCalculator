@@ -1,11 +1,16 @@
 import './style.css';
 
 // @ts-ignore
-import {createCalculatorModule} from '../../wasm/build/calculator.js';
+import createCalculatorModule from '../../wasm/build/calculator.js';
 
 async function main() {
 
-  const Calculator = await createCalculatorModule();
+  const Calculator = await createCalculatorModule({
+  locateFile: (path) =>
+    path.endsWith('.wasm')
+      ? new URL(`../../wasm/build/${path}`, import.meta.url).href
+      : path,
+});
 
 
   const add = Calculator.cwrap('add', 'number', ['number', 'number']);

@@ -24,7 +24,6 @@ if [ "$TARGET" = "native" ] || [ "$TARGET" = "all" ]; then
   echo "  Executable: ./build/calculator_exec"
   echo ""
   
-  # Run it
   if [ -f "./build/calculator_exec" ]; then
     echo "Running native executable:"
     echo "---"
@@ -42,7 +41,7 @@ if [ "$TARGET" = "wasm" ] || [ "$TARGET" = "all" ]; then
 
   if ! command -v emcmake &> /dev/null; then
     echo " Emscripten not found. Skipping WASM build."
-    echo "  To build WASM: source /path/to/emsdk/emsdk_env.sh"
+    echo " To build WASM: source /path/to/emsdk/emsdk_env.sh"
     echo ""
   else
     
