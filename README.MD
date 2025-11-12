@@ -53,7 +53,7 @@ A multi-platform scientific calculator with native C++ support and WebAssembly i
   cd emsdk
   ./emsdk install latest
   ./emsdk activate latest
-  source ./emsdk_env.sh  # Add to ~/.zshrc or ~/.bashrc
+  source ./emsdk_env.sh 
   ```
 
 
