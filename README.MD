@@ -8,7 +8,7 @@ A multi-platform scientific calculator with native C++ support and WebAssembly i
 - **Trigonometry**: Sine, cosine, tangent (in degrees)
 - **Advanced Math**: Power, square root, natural logarithm
 - **Multi-Platform**: 
-  - Native C++ CLI (macOS, Linux, Windows)
+  - Native C++ 
   - Web UI via WebAssembly
   - TypeScript library
 
