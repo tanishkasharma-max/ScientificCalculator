@@ -1,2 +1,1 @@
-/Users/tanishkasharma/emsdk/upstream/emscripten/emar qc libcalculator.a CMakeFiles/calculator.dir/src/cpp/calculator.cpp.o
-/Users/tanishkasharma/emsdk/upstream/emscripten/emranlib libcalculator.a
+/Users/tanishkasharma/emsdk/upstream/emscripten/em++ -s WASM=1                     -s MODULARIZE=1                     -s EXPORT_NAME='createCalculatorModule'                     -s ALLOW_MEMORY_GROWTH=1                     -s EXPORTED_FUNCTIONS='["_add","_subtract","_multiply","_divide","_sin_deg","_cos_deg","_tan_deg"]'                     -s EXPORTED_RUNTIME_METHODS='["cwrap"]'                     --no-entry @CMakeFiles/calculator.dir/objects1.rsp -o calculator.js

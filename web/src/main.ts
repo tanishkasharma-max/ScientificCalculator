@@ -1,13 +1,13 @@
 import './style.css';
 
 // @ts-ignore
-import {createModule} from '../../wasm/calculator_wrapper.js';
+import {createCalculatorModule} from '../../wasm/build/calculator.js';
 
 async function main() {
-  // Load and initialize the WebAssembly module
-  const Calculator = await createModule();
 
-  // Wrap exported C++ functions
+  const Calculator = await createCalculatorModule();
+
+
   const add = Calculator.cwrap('add', 'number', ['number', 'number']);
   const subtract = Calculator.cwrap('subtract', 'number', ['number', 'number']);
   const multiply = Calculator.cwrap('multiply', 'number', ['number', 'number']);
