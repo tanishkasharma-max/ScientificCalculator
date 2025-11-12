@@ -1,19 +1,20 @@
 import './style.css';
 
-// @ts-ignore — Emscripten JS has no types
-import initModule from './wasm_loader.js';
+// @ts-ignore
+import {createModule} from '../../wasm/calculator_wrapper.js';
 
-async function init() {
-  const Module = await initModule();
+async function main() {
+  // Load and initialize the WebAssembly module
+  const Calculator = await createModule();
 
-  // Wrap C++ functions (use actual exported names from C++)
-  const add = Module.cwrap('add', 'number', ['number', 'number']);
-  const subtract = Module.cwrap('subtract', 'number', ['number', 'number']);
-  const multiply = Module.cwrap('multiply', 'number', ['number', 'number']);
-  const divide = Module.cwrap('divide', 'number', ['number', 'number']);
-  const sin_deg = Module.cwrap('sin_deg', 'number', ['number']);
-  const cos_deg = Module.cwrap('cos_deg', 'number', ['number']);
-  const tan_deg = Module.cwrap('tan_deg', 'number', ['number']);
+  // Wrap exported C++ functions
+  const add = Calculator.cwrap('add', 'number', ['number', 'number']);
+  const subtract = Calculator.cwrap('subtract', 'number', ['number', 'number']);
+  const multiply = Calculator.cwrap('multiply', 'number', ['number', 'number']);
+  const divide = Calculator.cwrap('divide', 'number', ['number', 'number']);
+  const sin_deg = Calculator.cwrap('sin_deg', 'number', ['number']);
+  const cos_deg = Calculator.cwrap('cos_deg', 'number', ['number']);
+  const tan_deg = Calculator.cwrap('tan_deg', 'number', ['number']);
 
   const app = document.querySelector<HTMLDivElement>('#app')!;
   app.innerHTML = `
@@ -34,10 +35,12 @@ async function init() {
     </div>
   `;
 
+ 
   const result = document.getElementById('result')!;
-  const getVal = (id: string) => parseFloat((document.getElementById(id) as HTMLInputElement).value);
+  const getVal = (id: string) =>
+    parseFloat((document.getElementById(id) as HTMLInputElement).value);
 
-  document.querySelectorAll<HTMLButtonElement>('button').forEach(btn => {
+  document.querySelectorAll<HTMLButtonElement>('button').forEach((btn) => {
     btn.onclick = () => {
       const op = btn.dataset.op!;
       const a = getVal('a');
@@ -58,6 +61,5 @@ async function init() {
     };
   });
 }
-
-init();
+main();
 

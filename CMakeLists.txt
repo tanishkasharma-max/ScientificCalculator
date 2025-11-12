@@ -4,7 +4,7 @@ project(scientific_calculator LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# --- Detect and use Emscripten if available ---
+
 if(DEFINED ENV{EMSCRIPTEN})
     message(STATUS "Using Emscripten toolchain from $ENV{EMSCRIPTEN}")
     set(CMAKE_TOOLCHAIN_FILE "$ENV{EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake"
@@ -14,10 +14,9 @@ else()
 endif()
 
 # --- Source files ---
-# set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/cpp")
-# add_library(calculator STATIC ${SRC_DIR}/calculator.cpp)
+set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/cpp")
+add_library(calculator STATIC ${SRC_DIR}/calculator.cpp)
 
-# --- Build for WebAssembly if using Emscripten ---
 if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     message(STATUS "Building WebAssembly target...")
 
