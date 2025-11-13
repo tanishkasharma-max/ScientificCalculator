@@ -81,7 +81,7 @@ source /path/to/emsdk/emsdk_env.sh
 
 ```
 
-### 3. Run Web App (Development)
+### 3. Run Web App 
 
 ```bash
 cd web
