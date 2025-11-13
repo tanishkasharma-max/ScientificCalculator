@@ -93,9 +93,6 @@ npm run dev
 ### Using `build.sh` Script
 
 ```bash
-# Native release (default)
-./build.sh
-
 # Native
 ./build.sh  native
 
