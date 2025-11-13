@@ -69,16 +69,6 @@ cmake --build build
 ./build/calculator_exec
 ```
 
-**Output:**
-```
-Addition: 8
-Subtraction: 2
-Multiplication: 15
-Division: 1.66667
-Sine of 30 degrees: 0.5
-Cosine of 60 degrees: 0.5
-Tangent of 45 degrees: 1
-```
 
 ### 2. Build WebAssembly Module
 
