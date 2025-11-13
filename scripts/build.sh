@@ -4,7 +4,7 @@
 
 set -e
 
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")"/.. && pwd)"
 cd "$PROJECT_ROOT"
 
 echo "Scientific Calculator - Build"
@@ -29,7 +29,7 @@ if [ "$TARGET" = "test" ]; then
 fi
 
 
-if [ "$TARGET" = "native"]; then
+if [ "$TARGET" = "native" ]; then
   echo "Building Native Calculator..."
   echo ""
     cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE"

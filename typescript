@@ -1,0 +1,9 @@
+Script started on Thu Nov 13 14:28:34 2025
+Setting up EMSDK environment (suppress these messages with EMSDK_QUIET=1)
+Setting environment variables:
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jtanishkasharma@Tanishkas-MacBook-Pro ScientificCalculator % [K[?2004h[7mchmod +x scripts/build.sh[27m
+[K[A[60C[27mc[27mh[27mm[27mo[27md[27m [27m+[27mx[27m [27ms[27mc[27mr[27mi[27mp[27mt[27ms[27m/[27mb[27mu[27mi[27ml[27md[27m.[27ms[27mh[1B[K[?2004l
+chmod: scripts/build.sh: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jtanishkasharma@Tanishkas-MacBook-Pro ScientificCalculator % [K[?2004hchmod +x scripts/build.sh
+[K[K[A[60Cnpm run dev              [1B[K[A[71C[11Dcd web        c  //build.sh Run test[?2004l[1Bzsh: no such file or directory: /build.sh
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jtanishkasharma@Tanishkas-MacBook-Pro ScientificCalculator % [K[?2004hccle
