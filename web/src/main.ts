@@ -62,6 +62,9 @@ async function main() {
         case 'tan_deg': res = tan_deg(a); break;
         default: res = NaN;
       }
+      if (Math.abs(res - Math.round(res)) < 0.001) {
+      res = Math.round(res);
+    }
       result.textContent = `Result: ${res}`;
     };
   });
