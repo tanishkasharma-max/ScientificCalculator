@@ -25,7 +25,6 @@ if("${CMAKE_SYSTEM_NAME}" STREQUAL "Emscripten")
                     -s EXPORT_NAME='createCalculatorModule' \
                     -s EXPORT_ES6=1 \
                     -s ALLOW_MEMORY_GROWTH=1 \
-                    -s EXPORTED_FUNCTIONS='[\"_add\",\"_subtract\",\"_multiply\",\"_divide\",\"_sin_deg\",\"_cos_deg\",\"_tan_deg\"]' \
                     -s EXPORTED_RUNTIME_METHODS='[\"cwrap\"]' \
                     -s ENVIRONMENT='web' \
                     --no-entry"
