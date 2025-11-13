@@ -106,14 +106,12 @@ npm run dev
 # Native release (default)
 ./build.sh
 
-# Native debug
-./build.sh Debug native
+# Native
+./build.sh  native
 
 # WebAssembly only
 ./build.sh Run wasm
 
-# Both native and WASM
-./build.sh Run all
 
 ```
 
