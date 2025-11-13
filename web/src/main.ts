@@ -1,14 +1,14 @@
 import './style.css';
 
 // @ts-ignore
-import createCalculatorModule from '../../wasm/build/calculator.js';
+import createCalculatorModule from '../../build/calculator.js';
 
 async function main() {
 
   const Calculator = await createCalculatorModule({
   locateFile: (path) =>
     path.endsWith('.wasm')
-      ? new URL(`../../wasm/build/${path}`, import.meta.url).href
+      ? new URL(`../../build/${path}`, import.meta.url).href
       : path,
 });
 

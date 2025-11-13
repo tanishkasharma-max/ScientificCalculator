@@ -45,10 +45,10 @@ if [ "$TARGET" = "wasm" ] || [ "$TARGET" = "all" ]; then
     echo ""
   else
     
-    emcmake cmake -S . -B wasm/build -DCMAKE_BUILD_TYPE="$BUILD_TYPE"
+    emcmake cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE"
     
     # Compile
-    cmake --build wasm/build --config "$BUILD_TYPE"
+    cmake --build build --config "$BUILD_TYPE"
     
     echo ""
     echo "WASM build complete!"
