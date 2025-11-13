@@ -1,8 +1,10 @@
-
 #include <cmath>
+#ifdef __EMSCRIPTEN__
 #include <emscripten/emscripten.h>
 #define EXPORT_FUNC EMSCRIPTEN_KEEPALIVE
-
+#else
+#define EXPORT_FUNC  
+#endif
 
 class Calculator {
 public:
@@ -17,3 +19,4 @@ public:
     EXPORT_FUNC double square_root(double value);
     EXPORT_FUNC double logarithm(double value);
 };
+

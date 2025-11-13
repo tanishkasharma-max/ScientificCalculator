@@ -12,8 +12,24 @@ echo "Scientific Calculator - Build"
 BUILD_TYPE="${1:-Run}"
 TARGET="${2:-native}" 
 
+if [ "$TARGET" = "test" ]; then
+  echo "Running C++ Tests..."
 
-if [ "$TARGET" = "native" ] || [ "$TARGET" = "all" ]; then
+  mkdir -p build/tests
+
+  g++ -std=c++17 test/test.cpp src/cpp/calculator.cpp -o build/tests/test_bin
+
+  echo ""
+  echo "Running test executable:"
+  echo "---"
+  ./build/tests/test_bin
+  echo "---"
+
+  exit 0
+fi
+
+
+if [ "$TARGET" = "native"]; then
   echo "Building Native Calculator..."
   echo ""
     cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE"
@@ -26,9 +42,8 @@ if [ "$TARGET" = "native" ] || [ "$TARGET" = "all" ]; then
   
   if [ -f "./build/calculator_exec" ]; then
     echo "Running native executable:"
-    echo "---"
+
     ./build/calculator_exec
-    echo "---"
     echo ""
   fi
 fi
@@ -50,8 +65,6 @@ if [ "$TARGET" = "wasm" ] || [ "$TARGET" = "all" ]; then
     # Compile
     cmake --build build --config "$BUILD_TYPE"
     
-    echo ""
     echo "WASM build complete!"
-    echo ""
   fi
 fi

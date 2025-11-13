@@ -8,6 +8,10 @@ set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/cpp")
 set(SOURCES
     ${SRC_DIR}/calculator.cpp
 )
+set(TEST_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test")
+set(TEST_SOURCES
+    ${TEST_DIR}/test.cpp
+)
 
 # Detect Emscripten
 if("${CMAKE_SYSTEM_NAME}" STREQUAL "Emscripten")
