@@ -45,31 +45,7 @@ ScientificCalculator/
   ```
 
 
-### 1. Build Native Calculator
-
-```bash
-# Using the build script 
-./build.sh Run native
-
-# Or manually
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build
-./build/calculator_exec
-```
-
-
-### 2. Build WebAssembly Module
-
-```bash
-# Requires emsdk to be sourced
-source /path/to/emsdk/emsdk_env.sh
-
-# Build
-./build.sh Run wasm
-
-```
-
-### 3. Run Web App 
+### . Run Web App 
 
 ```bash
 cd platforms/web
