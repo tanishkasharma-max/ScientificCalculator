@@ -2,42 +2,30 @@
 
 A multi-platform scientific calculator with native C++ support and WebAssembly integration. Build once, run everywhere: command-line (native), web browser (WASM), and TypeScript.
 
-
-
 - **Core Operations**: Add, subtract, multiply, divide
 - **Trigonometry**: Sine, cosine, tangent (in degrees)
 - **Advanced Math**: Power, square root, natural logarithm
 - **Multi-Platform**: 
   - Native C++ 
   - Web UI via WebAssembly
-  - TypeScript library
 
 ## Project Structure
 
 ```
-.
-├── src/cpp/                    # C++ source code
-│   ├── calculator.cpp          
-│   └── calculator.hpp         
-├── ts/                         
-│   └── Calculator.ts           
-├── web/                       
-│   ├── src/
-│   │   ├── main.ts             
-│   │   ├── wasm_loader.js      
-│   │   ├── style.css           
-│   │  
-│   ├── index.html              
-│            
-├── wasm/                          # given by emscripten
-│   ├── calculator.js           
-│   ├── calculator.wasm         
-│   
-├── build/                      
-├── CMakeLists.txt              
-├── package.json                
-├── tsconfig.json               
-└── build.sh                   
+ScientificCalculator/
+├── build/                   # Generated build files
+│   ├── calculator.js        # WebAssembly JS wrapper
+│   ├── calculator.wasm      # WebAssembly module
+│   └── CMakeFiles/          # CMake-generated build files
+├── platforms/
+│   ├── web/
+│   │   └── src/             # Web source code (C++/TypeScript)
+│   └── mac/
+│       └── cpp/             # macOS source code (C++)
+├── test/
+│   └── test.js              # Test scripts
+└── scripts/
+    └── build.sh             # Build script                
 ```
 
 
@@ -93,13 +81,22 @@ npm run dev
 ### Using `build.sh` Script
 
 ```bash
-# Native
-./build.sh  native
+# Run tests
+./scripts/build.sh Run test
 
-# WebAssembly only
-./build.sh Run wasm
+# Build WebAssembly module
+./scripts/build.sh Run wasm
 
+# Build native macOS app
+./scripts/build.sh Run mac
 
 ```
+
+# Build.sh Permission
+
+'''
+chmod +x ./scripts/build.sh
+
+'''
 
 
