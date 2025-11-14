@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include "../src/cpp/calculator.hpp"
+#include "../platforms/mac/src/cpp/calculator.hpp"
 using namespace std;
 
 void test(const string& name, double result, double expected) {
@@ -32,23 +32,23 @@ int main()
 
     try {
         calc.divide(5, 0);
-        std::cout << "divide(5,0): FAIL (no exception)\n";
+        std::cout << "divide(5,0): FAIL (no exception)"<<endl;
     } catch (...) {
         std::cout << "divide(5,0): PASS (caught exception)\n";
     }
 
     try {
         calc.square_root(-1);
-        std::cout << "square_root(-1): FAIL (no exception)\n";
+        std::cout << "square_root(-1): FAIL no exception"<<endl;
     } catch (...) {
-        std::cout << "square_root(-1): PASS (caught exception)\n";
+        std::cout << "square_root(-1): PASS caught exception"<<endl;
     }
 
     try {
         calc.logarithm(-1);
-        std::cout << "logarithm(-1): FAIL (no exception)\n";
+        std::cout << "logarithm(-1): FAIL no exception"<<endl;
     } catch (...) {
-        std::cout << "logarithm(-1): PASS (caught exception)\n";
+        std::cout << "logarithm(-1): PASS caught exception"<<endl;
     }
 
     return 0;

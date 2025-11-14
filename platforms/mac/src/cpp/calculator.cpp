@@ -2,7 +2,8 @@
 #include <cmath>
 #include <stdexcept>
 
-using namespace std;    
+using namespace std;
+
 
 double Calculator::add(double a, double b) {
     return a + b;
@@ -41,11 +42,11 @@ double Calculator::tan_deg(double degrees) {
 double Calculator::square_root(double value) {
     if (value < 0)
         throw runtime_error("Square root of negative number");
-    return std::sqrt(value);
+    return sqrt(value);
 }
 
 double Calculator::logarithm(double value) {
     if (value <= 0)
-        throw runtime_error("Logarithm of non-positive number");
+        throw runtime_error("Logarithm of negative number");
     return log(value);
 }

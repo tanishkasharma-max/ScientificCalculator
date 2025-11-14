@@ -17,7 +17,7 @@ if [ "$TARGET" = "test" ]; then
 
   mkdir -p build/tests
 
-  g++ -std=c++17 test/test.cpp src/cpp/calculator.cpp -o build/tests/test_bin
+  g++ -std=c++17 test/test.cpp platforms/mac/src/cpp/calculator.cpp -o build/tests/test_bin
 
   echo ""
   echo "Running test executable:"
@@ -49,7 +49,7 @@ if [ "$TARGET" = "native" ]; then
 fi
 
 
-if [ "$TARGET" = "wasm" ] || [ "$TARGET" = "all" ]; then
+if [ "$TARGET" = "wasm" ]; then
   echo "Building WebAssembly Module..."
   echo ""
   
