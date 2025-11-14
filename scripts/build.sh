@@ -10,7 +10,7 @@ cd "$PROJECT_ROOT"
 echo "Scientific Calculator - Build"
 
 BUILD_TYPE="${1:-Run}"
-TARGET="${2:-native}" 
+TARGET="${2:-mac}" 
 
 if [ "$TARGET" = "test" ]; then
   echo "Running C++ Tests..."
@@ -29,7 +29,7 @@ if [ "$TARGET" = "test" ]; then
 fi
 
 
-if [ "$TARGET" = "native" ]; then
+if [ "$TARGET" = "mac" ]; then
   echo "Building Native Calculator..."
   echo ""
     cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE"
