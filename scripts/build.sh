@@ -1,6 +1,5 @@
 #!/bin/bash
 # Scientific Calculator - Build Script
-# Builds native and/or WebAssembly versions
 
 set -e
 
@@ -27,6 +26,27 @@ if [ "$TARGET" = "test" ]; then
 
   exit 0
 fi
+
+if [ "$TARGET" = "matrixTest" ]; then
+  echo "Running C++ Matrix Tests..."
+
+  mkdir -p build/tests
+
+  g++ -std=c++17 test/mat_test.cpp \
+      package/src/matrix.cpp \
+      package/src/calculator.cpp \
+      -o build/tests/test_bin_mat
+
+  echo ""
+  echo "Running test executable:"
+  echo "---"
+  ./build/tests/test_bin_mat
+  echo "---"
+
+  exit 0
+fi
+
+
 
 
 if [ "$TARGET" = "mac" ]; then
