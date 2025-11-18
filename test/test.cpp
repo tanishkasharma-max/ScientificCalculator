@@ -6,46 +6,69 @@ using namespace std;
 
 
 void assertEqual(const string& name, double result, double expected) {
-    assert(fabs(result - expected) < 1e-6 && "Floating-point comparison failed");
+    if (fabs(result - expected) > 1e-6) {
+        cerr << "Test FAILED: " << name 
+             << " (expected " << expected << ", got " << result << ")\n";
+        assert(false);
+    }
 }
 
 int main() 
 {
     Calculator calc;
 
+   
+    double a, b;
 
-    assertEqual("add",  calc.add(3, 4),       7);
-    assertEqual("subtract", calc.subtract(10, 4), 6);
-    assertEqual("multiply", calc.multiply(2, 5), 10);
-    assertEqual("divide",   calc.divide(10, 2), 5);
-    assertEqual("power",   calc.power(2, 3),  8);
+  
+    a = 3;  b = 4;
+    assertEqual("add", calc.add(&a, &b), 7);
 
-    assertEqual("sin_deg", calc.sin_deg(30), 0.5);
-    assertEqual("cos_deg", calc.cos_deg(60), 0.5);
-    assertEqual("tan_deg", calc.tan_deg(45),  1);
+    a = 10; b = 4;
+    assertEqual("subtract", calc.subtract(&a, &b), 6);
 
-    assertEqual("square_root", calc.square_root(16), 4);
-    assertEqual("logarithm",   calc.logarithm(2.7182818), 1);  
+    a = 2;  b = 5;
+    assertEqual("multiply", calc.multiply(&a, &b), 10);
+
+    a = 10; b = 2;
+    assertEqual("divide", calc.divide(&a, &b), 5);
+
+    a = 2;  b = 3;
+    assertEqual("power", calc.power(&a, &b), 8);
+
+    a = 30;
+    assertEqual("sin_deg", calc.sin_deg(&a), 0.5);
+
+    a = 60;
+    assertEqual("cos_deg", calc.cos_deg(&a), 0.5);
+
+    a = 45;
+    assertEqual("tan_deg", calc.tan_deg(&a), 1);
+
+    a = 16;
+    assertEqual("square_root", calc.square_root(&a), 4);
+
+    a = 2.7182818;
+    assertEqual("logarithm", calc.logarithm(&a), 1);
 
 
-    
-    try { calc.divide(5, 0); }
-    catch (...) {}
-    assert("divide(5,0) should throw");
-
- 
-
-    try { calc.square_root(-1); }
-    catch (...) {}
-    assert("square_root(-1) should throw");
-
-
- 
-    try { calc.logarithm(-1); }
+    // --- Exception Tests ---
+    a = 5; b = 0;
+    try { calc.divide(&a, &b); }
     catch (...) {  }
+    assert( "divide(5,0) should throw");
+
+    // sqrt(-1)
+    a = -1;
+    try { calc.square_root(&a); }
+    catch (...) { }
+    assert( "square_root(-1) should throw");
+
+    a = -1;
+    try { calc.logarithm(&a); }
+    catch (...) {}
     assert("logarithm(-1) should throw");
 
-    cout << "All tests passed successfully!\n";
+    cout << "All tests passed successfully!"<<endl;
     return 0;
 }
-

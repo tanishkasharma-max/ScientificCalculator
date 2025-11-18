@@ -21,7 +21,7 @@ Matrix Matrix::add(const Matrix& mat) const {
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            result.matrix[i][j] = calc.add(matrix[i][j], mat.matrix[i][j]);
+            result.matrix[i][j] = calc.add(&matrix[i][j], &mat.matrix[i][j]);
         }
     }
 
@@ -37,7 +37,7 @@ Matrix Matrix::subtract(const Matrix& mat) const {
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            result.matrix[i][j] = calc.subtract(matrix[i][j], mat.matrix[i][j]);
+            result.matrix[i][j] = calc.subtract(&matrix[i][j], &mat.matrix[i][j]);
         }
     }
 
