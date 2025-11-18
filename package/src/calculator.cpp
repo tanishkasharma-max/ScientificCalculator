@@ -54,7 +54,6 @@ double Calculator::logarithm(double value) {
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten/emscripten.h>
-#include "calculator.hpp"
 
 extern "C" {
 
