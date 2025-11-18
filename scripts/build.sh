@@ -17,7 +17,7 @@ if [ "$TARGET" = "test" ]; then
 
   mkdir -p build/tests
 
-  g++ -std=c++17 test/test.cpp platforms/mac/src/cpp/calculator.cpp -o build/tests/test_bin
+  g++ -std=c++17 test/test.cpp package/src/calculator.cpp -o build/tests/test_bin
 
   echo ""
   echo "Running test executable:"

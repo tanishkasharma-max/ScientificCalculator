@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
-set(SRC_DIR "${PROJECT_SOURCE_DIR}/platforms/mac/src/cpp")
+set(SRC_DIR "${PROJECT_SOURCE_DIR}/package/src")
 set(SOURCES
     ${SRC_DIR}/calculator.cpp
 )
@@ -17,7 +17,7 @@ if("${CMAKE_SYSTEM_NAME}" STREQUAL "Emscripten")
     # WASM sources
     set(WASM_SOURCES
         ${SOURCES}
-        ${PROJECT_SOURCE_DIR}/platforms/web/wasm_export.cpp
+        ${PROJECT_SOURCE_DIR}/package/src/calculator.cpp
     )
 
     add_executable(calculator ${WASM_SOURCES})

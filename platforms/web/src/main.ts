@@ -6,7 +6,7 @@ import createCalculatorModule from '../../../build/calculator.js';
 async function main() {
 
   const Calculator = await createCalculatorModule({
-  locateFile: (path) =>
+  locateFile: (path:string) =>
     path.endsWith('.wasm')
       ? new URL(`../../../build/${path}`, import.meta.url).href
       : path,

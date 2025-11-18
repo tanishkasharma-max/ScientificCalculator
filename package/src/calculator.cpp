@@ -50,3 +50,43 @@ double Calculator::logarithm(double value) {
         throw runtime_error("Logarithm of negative number");
     return log(value);
 }
+
+
+#ifdef __EMSCRIPTEN__
+#include <emscripten/emscripten.h>
+#include "calculator.hpp"
+
+extern "C" {
+
+EMSCRIPTEN_KEEPALIVE
+double add(double a, double b) { return Calculator().add(a, b); }
+
+EMSCRIPTEN_KEEPALIVE
+double subtract(double a, double b) { return Calculator().subtract(a, b); }
+
+EMSCRIPTEN_KEEPALIVE
+double multiply(double a, double b) { return Calculator().multiply(a, b); }
+
+EMSCRIPTEN_KEEPALIVE
+double divide(double a, double b) { return Calculator().divide(a, b); }
+
+EMSCRIPTEN_KEEPALIVE
+double power(double a, double b) { return Calculator().power(a, b); }
+
+EMSCRIPTEN_KEEPALIVE
+double sin_deg(double v) { return Calculator().sin_deg(v); }
+
+EMSCRIPTEN_KEEPALIVE
+double cos_deg(double v) { return Calculator().cos_deg(v); }
+
+EMSCRIPTEN_KEEPALIVE
+double tan_deg(double v) { return Calculator().tan_deg(v); }
+
+EMSCRIPTEN_KEEPALIVE
+double square_root(double v) { return Calculator().square_root(v); }
+
+EMSCRIPTEN_KEEPALIVE
+double logarithm(double v) { return Calculator().logarithm(v); }
+
+}
+#endif
