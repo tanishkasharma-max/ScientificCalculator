@@ -52,7 +52,12 @@ ScientificCalculator/
 ```bash
 cd platforms/web
 npm run dev
+
+Install chart
+npm install chart.js.     # Used for visualize memory leak
+
 ```
+
 
 ## Build Commands Reference
 
