@@ -13,19 +13,21 @@ A multi-platform scientific calculator with native C++ support and WebAssembly i
 
 ```
 ScientificCalculator/
-├── build/                   # Generated build files
-│   ├── calculator.js        # WebAssembly JS wrapper
-│   ├── calculator.wasm      # WebAssembly module
-│   └── CMakeFiles/          # CMake-generated build files
+├── build/                       # Generated build files
+│   ├── calculator.js            # WebAssembly JS wrapper
+│   ├── calculator.wasm          # WebAssembly module
+│   └── CMakeFiles/              # CMake-generated build files
+├── packages/
+│   └── src/                      # cpp files
 ├── platforms/
 │   ├── web/
-│   │   └── src/             # Web source code (C++/TypeScript)
-│   └── mac/
-│       └── cpp/             # macOS source code (C++)
+│   │   └── src/                 # Web source code (C++/TypeScript)
 ├── test/
-│   └── test.js              # Test scripts
+│   ├── test.cpp                 # Test scripts
+│   └── mat_test.cpp
 └── scripts/
-    └── build.sh             # Build script                
+    └── build.sh                 # Build script
+            
 ```
 
 
