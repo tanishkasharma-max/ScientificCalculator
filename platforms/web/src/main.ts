@@ -12,7 +12,43 @@ async function main() {
       : path,
 });
 
+function startOperationStressTest() {
+  console.log("Starting WASM operation stress test...");
 
+  let count = 0;
+ const operations = [
+    { fn: add, name: "add" },
+    { fn: subtract, name: "subtract" },
+    { fn: multiply, name: "multiply" },
+    { fn: divide, name: "divide" }
+  ];
+  const interval = setInterval(() => {
+    const a = Math.random() * 10000 * performance.now();
+    const b = Math.random() * 10000 * performance.now();
+
+    const op = operations[Math.floor(Math.random() * operations.length)];
+
+    try {
+     const result = op.fn(a, b);
+      
+      // print every 1000th operation
+      if (count % 1000 === 0) {
+        console.log(`Iter: ${count},op=${op.name}, a=${a.toFixed(2)}, b=${b.toFixed(2)}, result=${result}`);
+      }
+
+      count++;
+    } catch (err) {
+      console.error("Error during stress test:", err);
+      clearInterval(interval);
+    }
+
+    // Stop after 100k operations
+    if (count >= 10000) {
+      console.log("Stress test complete.");
+      clearInterval(interval);
+    }
+  }, 0);
+}
   const add = Calculator.cwrap('add', 'number', ['number', 'number']);
   const subtract = Calculator.cwrap('subtract', 'number', ['number', 'number']);
   const multiply = Calculator.cwrap('multiply', 'number', ['number', 'number']);
@@ -26,20 +62,22 @@ async function main() {
     <div class="calc">
       <h1>Scientific Calculator</h1>
       <input id="a" placeholder="Enter A" type="number" />
-      <input id="b" placeholder="Enter B (optional)" type="number" />
+      <input id="b" placeholder="Enter B" type="number" />
       <div class="buttons">
         <button data-op="add">+</button>
         <button data-op="subtract">-</button>
         <button data-op="multiply">*</button>
         <button data-op="divide">/</button>
-        <button data-op="sin_deg">sin</button>
-        <button data-op="cos_deg">cos</button>
-        <button data-op="tan_deg">tan</button>
+  
       </div>
+
+      <button id="Test" style="margin-top: 20px; background: red; color: white;">
+         Start Stress Test
+      </button>
+
       <p id="result">Result: </p>
     </div>
-  `;
-
+`;
  
   const result = document.getElementById('result')!;
   const getVal = (id: string) =>
@@ -68,6 +106,10 @@ async function main() {
       result.textContent = `Result: ${res}`;
     };
   });
+
+  document.getElementById("Test")!.onclick = () => {
+    startOperationStressTest();
+  };
 }
 main();
 
