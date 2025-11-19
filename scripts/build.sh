@@ -46,9 +46,6 @@ if [ "$TARGET" = "matrixTest" ]; then
   exit 0
 fi
 
-
-
-
 if [ "$TARGET" = "mac" ]; then
   echo "Building Native Calculator..."
   echo ""
